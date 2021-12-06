@@ -4,7 +4,7 @@
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
           <router-link :to="{name : 'Home'}">
-					  <img src="../assets/icon.png" alt="IMG">
+					  <img src="../assets/Logo.png" alt="IMG">
           </router-link>
 				</div>
 

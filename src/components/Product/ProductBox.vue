@@ -1,16 +1,18 @@
 <template>
+
   <div class="card h-100 w-100">
-    <div class="embed-responsive embed-responsive-16by9" style="height: 220px;">
+    <router-link :to="{ name: 'ShowDetails', params: { id: product.id } }">
+    <div class="embed-responsive embed-responsive-16by9">
       <img
         class="card-img-top embed-responsive-item"
-        style="height: 220px;"
         :src="product.imageURL"
         alt="Product Image"
       />
     </div>
+    </router-link >
     <div class="card-body text-center p-2">
-      <router-link :to="{ name: 'ShowDetails', params: { id: product.id } }"
-        ><h5 class="card-title">{{ product.name }}</h5>
+      <router-link :to="{ name: 'ShowDetails', params: { id: product.id } }">
+        <h5 class="card-title">{{ product.name }}</h5>
       </router-link >
 
       <p class="card-text p-1 m-0 text-center preco">R$ {{ product.price }}</p>
@@ -46,6 +48,10 @@ a {
   text-decoration: none;
 }
 
+.embed-responsive{
+  height: 260px;
+}
+
 .card-title {
   color: #484848;
   font-size: 1.1rem;
@@ -67,6 +73,26 @@ a {
 .preco {
   color: black;
   font-size: 20px;
+}
+
+@media (max-width: 576px){
+
+.embed-responsive{
+height: 150px;
+}
+
+.card-img-top{
+height: 100%;
+}
+
+.card-title{
+  font-size: 15px;
+}
+
+.preco{
+  font-size: 18px;
+}
+
 }
 
 </style>

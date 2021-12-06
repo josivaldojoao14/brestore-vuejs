@@ -1,18 +1,20 @@
 <template>
   <div class="card h-100 w-100">
-    <div class="embed-responsive embed-responsive-16by9">
-      <img
-        class="card-img-top embed-responsive-item"
-        :src="category.imageUrl"
-        alt="Category Image"
-      />
-    </div>
+    <router-link :to="{ name: 'ListProducts', params: { id: category.id } }">
+        <div class="embed-responsive embed-responsive-16by9">
+          <img
+            class="card-img-top embed-responsive-item"
+            :src="category.imageUrl"
+            alt="Category Image"
+          />
+        </div>  
+    </router-link>
 
     <div class="card-body text-center p-1">
-      <router-link :to="{ name: 'ListProducts', params: { id: category.id } }"
-        ><h5 class="card-title text">{{ category.categoryName }}</h5></router-link
-      >
-      
+      <router-link :to="{ name: 'ListProducts', params: { id: category.id } }">
+      <h5 class="card-title text">{{ category.categoryName }}</h5>
+      </router-link>
+    
       <router-link
         id="edit-category"
         :to="{ name: 'EditCategory', params: { id: category.id } }"
@@ -64,5 +66,15 @@ a {
 
 #edit-category {
   float: right;
+}
+
+
+@media (max-width: 576px){
+
+.card-title{
+  font-size: 15px;
+  margin-bottom: 0 !important;
+}
+
 }
 </style>

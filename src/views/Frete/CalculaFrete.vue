@@ -83,4 +83,20 @@
   .card.card-body p {
     margin: 5px;
   }
+
+  @media (max-width: 576px){
+    .row{
+      margin-top: 15px !important;
+    }
+
+    .form-group, .btn{
+      margin-left: 20px;
+    }
+
+    .card-body{
+      margin-left: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
 </style>

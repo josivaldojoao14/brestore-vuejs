@@ -7,11 +7,11 @@
     <div id="start-shopping" class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="pt-5">Categorias em destaque</h2>
+          <h2 class="pt-5 titulo-grande">Categorias em destaque</h2>
         </div>
       </div>
       <div class="row">
-        <div v-for="index in this.category_size" :key="index" class="col-md-6 col-xl-3 col-12 pt-3  justify-content-around d-flex">
+        <div v-for="index in this.category_size" :key="index" class="col-md-6 col-xl-3 col-12 pt-3  justify-content-around d-flex grid-categoria">
           <CategoryBox :category="categories[index-1]">
           </CategoryBox>
         </div>
@@ -21,11 +21,11 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="pt-5">Produtos adicionados recentemente</h2>
+          <h2 class="pt-5 titulo-grande">Produtos adicionados recentemente</h2>
         </div>
       </div>
       <div class="row">
-        <div v-for="index in this.product_size" :key="index" class="col-md-6 col-xl-3 col-12 pt-3  justify-content-around d-flex">
+        <div v-for="index in this.product_size" :key="index" class="col-md-6 col-xl-3 col-12 pt-3  justify-content-around d-flex grid-produto">
           <ProductBox :product="products[index-1]">
           </ProductBox>
         </div>
@@ -86,4 +86,32 @@
   h2 {
     font-family: 'Josefin Sans', sans-serif;
   }
+
+  
+@media (max-width: 576px){
+  .row{
+    display: inline-flex !important;
+  }
+
+  .grid-categoria{
+  max-width: 50%;
+  }
+
+  .card-title{
+  font-size: 15px;
+  margin-bottom: 0 !important;
+  }
+
+  .titulo-grande{
+    font-size: 24px;
+        margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .grid-produto{
+  max-width: 50%;
+  }
+}
+
+  
 </style>

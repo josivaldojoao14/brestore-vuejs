@@ -30,8 +30,8 @@ export default {
   align-items: center;
 }
 .adminPanel button{
-  font-size: 30px;
+  font-size: 22px;
   width: fit-content;
-  margin: 55px 0;
+  margin: 25px;
 }
 </style>

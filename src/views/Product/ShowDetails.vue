@@ -9,11 +9,11 @@
         <p class="category">Categoria: {{ category.categoryName }}</p>
         <h4 class="title">{{ product.name }}</h4>
         <h6 class="price">R$ {{ product.price }}</h6>
-        <p>
+        <p class="description">
           Descrição: {{ product.description }}
         </p>
 
-        <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-row justify-content-between botoes">
 
           <div>
             <button type="button" id="add-to-cart-button" class="btn" @click="addToCart(this.id)">
@@ -74,6 +74,13 @@
     props: ["baseURL", "products", "categories"],
     methods: {
       addToWishList(productId) {
+        if (!this.token) {
+        swal({
+          text: "Faça o login antes!",
+          icon: "error",
+        });
+        return;
+        }
         axios
           .post(`${this.baseURL}wishlist/add?token=${this.token}`, {
             id: productId,
@@ -91,6 +98,13 @@
           );
       },
       addToCart(productId) {
+        if (!this.token) {
+        swal({
+          text: "Faça o login antes!",
+          icon: "error",
+        });
+        return;
+        }
         axios
           .post(`${this.baseURL}cart/add?token=${this.token}`, {
             productId: productId,
@@ -208,12 +222,50 @@
     font-weight: bold;
     margin-bottom: 20px;
     letter-spacing: 1px;
-    background-color: #f5dadf;
+    background-color: #cc3c57;
     cursor: pointer;
     border: none;
   }
 
   #wishlist-bt:hover {
-    background-color: #ecbbc4;
+    background-color: #f32047;
+  }
+
+  @media (max-width: 576px){
+    .row{
+      padding-top: 15px !important;
+    }
+
+    .botoes{
+      display: block !important;
+    }
+
+    .div-img{
+      margin-right: 0 !important;
+    }
+
+    .img-fluid{
+      height: 350px;
+      width: 350px;
+      padding: 10px;
+      margin-left: 5px;
+    }
+
+    .category{
+      display: none;
+    }
+
+    .title{
+      margin-top: 15px;
+      font-size: 21px;
+    }
+
+    .price{
+      font-size: 23px;
+    }
+
+    .description{
+      font-size: 14px;
+    }
   }
 </style>

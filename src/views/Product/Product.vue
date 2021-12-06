@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-12 text-center">
         <h4 class="pt-3">Produtos</h4>
-        <router-link id="add-product" :to="{name : 'AddProduct'}" v-show="$route.name=='AdminProduct'">
-          <button class="btn">Adicione um novo produto</button>
+        <router-link style="display: contents;" id="add-product" :to="{name : 'AddProduct'}" v-show="$route.name=='AdminProduct'">
+          <button class="btn-primary">Adicione um produto</button>
         </router-link>
       </div>
     </div>
@@ -41,5 +41,11 @@ h4 {
 #add-product {
   float: right;
   font-weight: 500;
+}
+
+@media (max-width: 576px){
+  .row{
+    display: flex !important;
+  }
 }
 </style>

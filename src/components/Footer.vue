@@ -2,8 +2,8 @@
   <footer>
     <div class="container pt-5">
       <div class="row">
-        <div class="col-md-3 col-4">
-          <ul style="list-style-type: none">
+        <div class="col-md-3 col-4 div-foot">
+          <ul style="list-style-type: none" class="lista-footer">
             <li class="text-light font-weight-bold pb-2">Conheça a gente</li>
             <li><a class="footer-link font-weight-light" href="#">Sobre nós</a></li>
             <li><a class="footer-link font-weight-light" href="#">Android App</a><br></li>
@@ -11,8 +11,8 @@
           </ul>
         </div>
 
-        <div class="col-md-3 col-4">
-          <ul style="list-style-type: none">
+        <div class="col-md-3 col-4 div-foot">
+          <ul style="list-style-type: none" class="lista-footer">
             <li class="text-light font-weight-bold">Fique conectado com a gente</li>
             <li><a class="footer-link font-weight-light" href="#">Facebook</a></li>
             <li><a class="footer-link font-weight-light" href="#">Twitter</a><br></li>
@@ -20,15 +20,15 @@
           </ul>
         </div>
 
-        <div class="col-md-3 col-4">
-          <ul style="list-style-type: none">
+        <div class="col-md-3 col-4 div-foot">
+          <ul style="list-style-type: none" class="lista-footer">
             <li class="text-light font-weight-bold">Suporte</li>
             <li><a class="footer-link font-weight-light" href="#">Central de reembolsos</a></li>
             <li><a class="footer-link font-weight-light" href="#">Proteção de compra</a><br></li>
             <li><a class="footer-link font-weight-light" href="#">Ajuda</a><br></li>
           </ul>
         </div>
-        <div class="col-md-3 col-5">
+        <div class="col-md-3 foot-logo">
           <div class="row">
           <div class="col-12">
             <div class="text-center">
@@ -50,7 +50,7 @@ export default {
 
 <style>
 footer {
-  margin-top : 100px;
+  margin-top : 50px;
   background-color:#00453d;
   font-size:16px;
 }
@@ -76,5 +76,19 @@ footer {
   font-family: 'Roboto', sans-serif;
 }
 
+@media (max-width: 576px){
+    .lista-footer{
+      padding-left: 20px;
+    }
+
+    .div-foot{
+      padding: 0 !important;
+      max-width: 33% !important;
+    }
+
+    .foot-logo{
+      text-align: center;
+    }
+  }
 
 </style>

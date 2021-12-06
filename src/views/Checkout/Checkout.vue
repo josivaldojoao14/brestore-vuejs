@@ -1,13 +1,13 @@
 <template>
-  <div class="div_class">
-    <h3>Confirme a compra clicando no botão</h3>
+  <div class="geral mt-5">
+    <h3 class="title">Confirme a compra clicando no botão</h3>
         <button class="btn-primary" @click="goToCheckout()">
-            Confirmo a compra
+            Confirmar a compra
         </button>
         <br>
         <br>
         <button class="btn-primary"><router-link class="text-light" :to="{name : 'Order'}">
-            Ir para meu pedidos
+            Ir para meu pedidos <i class="bi bi-arrow-right"></i>
         </router-link></button>
         
   </div>
@@ -74,42 +74,13 @@ export default {
 </script>
 
  <style >
-.alert{
-    width: 50%;
-}
-.div_class{
-    margin-top: 5%;
-    margin-left: 30%;
-}
-.checkout_button{
-    background-color: #5d3dec;
-    border: none;
-    color: white;
-    margin-left: 15%;
-    padding: 15px 30px;
+.geral{
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 15px;
 }
-.checkout_button:focus{
-    outline: none;
-    box-shadow: none;
+
+.title{
+margin-bottom: 20px;
+
 }
-.checkout_button:disabled{
-    background-color: #9b86f7;
-    border: none;
-    color: white;
-    margin-left: 15%;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 15px;
-    cursor:not-allowed;
-}
+
 </style>

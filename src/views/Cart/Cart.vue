@@ -16,7 +16,7 @@
           <h5 class="card-title" @click="showDetails(itr-1)">{{cartItem[itr-1].pName}}</h5>
           <!--          <p id="item-description" class="card-text font-italic mb-0">{{cartItem[itr-1].pDescription.substring(0,90)}}...</p>-->
           <!-- <p id="item-price" class="mb-0 font-weight-bold">R$ {{cartItem[itr-1].pPrice}} / unidade</p> -->
-          <p class="mb-0">
+          <p class="mb-0 quantity">
             Quantidade:
             <input size="1" class="p-0 h-25 border-bottom border-top-0 border-left-0 border-right-0"
               v-model="cartItem[itr-1].pQuantity" @change="updateItem(cartItem[itr-1].id,cartItem[itr-1].pQuantity)" />
@@ -197,5 +197,27 @@
     border-width: 1px;
     margin-left: 10%;
     margin-right: 10%;
+  }
+  @media (max-width: 576px){
+    .card-img-center{
+      object-fit: contain;
+    }
+    .card-title{
+      font-size: 16px;
+      margin-top: 10px;
+      margin-bottom: 10px !important;
+    }
+
+    .card-block{
+      text-align: center;
+    }
+
+    .quantity{
+      font-size: 14px;
+    }
+
+    #item-total-price{
+      font-weight: bold;
+    }
   }
 </style>

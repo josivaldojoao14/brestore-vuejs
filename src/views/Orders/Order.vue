@@ -10,16 +10,16 @@
       <div class="col-2"></div>
       <div class="col-md-3 embed-responsive embed-responsive-16by9">
         <!--                display image in left-->
-        <img v-bind:src="order.imageURL" class="w-100 card-img-top embed-responsive-item">
+        <img v-bind:src="order.imageURL" class="w-100 card-img-top embed-responsive-item" style="object-fit: contain !important">
       </div>
-      <div class="col-md-5 px-3">
+      <div class="col-md-5 px-3 geral">
         <div class="card-block px-3">
           <h6 class="card-title">
             <router-link v-bind:to="'/order/'+order.id">Pedido nº: {{order.id}}</router-link>
           </h6>
-          <p class="mb-0">{{order.totalItems}} item<span v-if="order.totalItems > 1">s</span></p>
+          <p class="mb-0">{{order.totalItems}} produto<span v-if="order.totalItems > 1">s</span></p>
           <p id="item-price" class="mb-0 font-weight-bold">Total: R$ {{order.totalCost}}</p>
-          <p id="item-total-price">Esse pedido foi realizado em: {{order.orderdate}}</p>
+          <p id="item-total-price">Data do pedido: {{order.orderdate}}</p>
         </div>
       </div>
       <div class="col-2"></div>
@@ -86,5 +86,16 @@
 
   .embed-responsive .card-img-top {
     object-fit: cover;
+  }
+
+  @media (max-width: 576px){
+    .geral{
+      text-align: center;
+    }
+
+    .card-title{
+      margin-top: 10px;
+    }
+
   }
 </style>
