@@ -1,9 +1,5 @@
 <template>
   <div id="home">
-    <!-- Page Wrapper -->
-    <div id="background-div" class="page-holder bg-cover">
-    </div>
-
     <div id="start-shopping" class="container">
       <div class="row">
         <div class="col-12 text-center">

@@ -1,6 +1,6 @@
 <template>
   <Navbar :cartCount="cartCount"  v-if="!['Signup', 'Signin'].includes($route.name)"/>
-  <div style="min-height: 60vh">
+  <div style="min-height: 70vh">
   <router-view v-if="products && categories"
     :baseURL="baseURL"
     :products="products"

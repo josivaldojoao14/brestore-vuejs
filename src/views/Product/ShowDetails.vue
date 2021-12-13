@@ -76,11 +76,11 @@
       addToWishList(productId) {
         if (!this.token) {
         swal({
-          text: "Faça o login antes!",
+          text: "Faça o login para realizar essa ação!",
           icon: "error",
         });
         return;
-        }
+      }
         axios
           .post(`${this.baseURL}wishlist/add?token=${this.token}`, {
             id: productId,
@@ -100,7 +100,7 @@
       addToCart(productId) {
         if (!this.token) {
         swal({
-          text: "Faça o login antes!",
+          text: "Faça o login para realizar essa ação!",
           icon: "error",
         });
         return;

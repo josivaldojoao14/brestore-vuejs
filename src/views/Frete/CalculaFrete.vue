@@ -84,6 +84,10 @@
     margin: 5px;
   }
 
+  .collapse{
+    width: 440px;
+  }
+
   @media (max-width: 576px){
     .row{
       margin-top: 15px !important;

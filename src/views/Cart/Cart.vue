@@ -6,7 +6,11 @@
       </div>
     </div>
 
-    <div v-if="carts" v-for="itr in len" :key="itr" class="row mt-1  pt-3 justify-content-around">
+    <div v-if="len === 0" :to="{name : 'Home'}" class="row mt-1  pt-3 justify-content-around">
+      <EmptyCart />
+    </div>
+
+    <div v-else-if="carts" v-for="itr in len" :key="itr" class="row mt-1  pt-3 justify-content-around">
       <div class="col-2"></div>
       <div class="col-md-3 embed-responsive embed-responsive-16by9">
         <img v-bind:src="cartItem[itr-1].imgUrl" class="w-100 card-img-center embed-responsive-item">
@@ -33,16 +37,16 @@
       <div class="col-12"></div>
       <div class="linha col"></div>
     </div>
-    
-    <CalculaFrete @clickedFrete="passaValor($event)">
-    </CalculaFrete>
 
-    <br>
+    <div v-if="len != 0" class="row mt-1  pt-3 justify-content-around">
+      <CalculaFrete @clickedFrete="passaValor($event)" />
 
-    <div class="total-cost pt-2 text-right">
-      <h6>Frete: R$ {{ frete.valor }} </h6>
-      <h4>Total: R$ {{totalcost + parseInt(frete.valor)}}</h4>
-      <button :disabled="isDisabled()" class="btn btn-primary confirm" @click="checkout()">Confirmar pedido</button>
+      <br>
+      <div class="total-cost pt-4 text-right">
+        <h6>Frete: R$ {{ frete.valor }} </h6>
+        <h4>Total: R$ {{ totalcost + parseInt(frete.valor) }}</h4>
+        <button :disabled="isDisabled()" class="btn btn-primary confirm" @click="checkout()">Confirmar pedido</button>
+      </div>
     </div>
 
   </div>
@@ -50,11 +54,13 @@
 
 <script>
   import CalculaFrete from "../Frete/CalculaFrete.vue";
+  import EmptyCart from './EmptyCart.vue';
 
   export default {
     name: 'Cart',
     components: {
-      CalculaFrete
+      CalculaFrete,
+      EmptyCart
     },
     props: ["baseURL"],
     data() {
@@ -69,7 +75,8 @@
       }
     },
     components: {
-      CalculaFrete
+      CalculaFrete,
+      EmptyCart
     },
     methods: {
       isDisabled() {
@@ -191,32 +198,34 @@
     align-self: center;
   }
 
-  .linha{
+  .linha {
     border-bottom: solid darkgrey;
     padding-bottom: 20px;
     border-width: 1px;
     margin-left: 10%;
     margin-right: 10%;
   }
-  @media (max-width: 576px){
-    .card-img-center{
+
+  @media (max-width: 576px) {
+    .card-img-center {
       object-fit: contain;
     }
-    .card-title{
+
+    .card-title {
       font-size: 16px;
       margin-top: 10px;
       margin-bottom: 10px !important;
     }
 
-    .card-block{
+    .card-block {
       text-align: center;
     }
 
-    .quantity{
+    .quantity {
       font-size: 14px;
     }
 
-    #item-total-price{
+    #item-total-price {
       font-weight: bold;
     }
   }
